@@ -1,8 +1,8 @@
-package kafka.consumer
+package com.hojeda.kafka.consumer
 
 fun main() {
 
-    val topic = "a-topic"
+    val topic = "numbers-topic"
     val host = "localhost"
     val port = "9092"
 
@@ -17,7 +17,7 @@ fun main() {
         println("******** -> Records: ${records.count()}")
 
         records.forEach { record ->
-            println(record.value())
+            println("Value: ${record.value()}")
         }
     }
 

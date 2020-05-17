@@ -1,4 +1,4 @@
-package kafka.producer
+package com.hojeda.kafka.producer
 
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerConfig
@@ -22,9 +22,15 @@ class KafkaProducer {
         }
 
         fun sendNumbers(topic: String, from: Long, to: Long) {
-            val producer = producers[topic] ?: throw getNotFoundProducerException(topic)
+            val producer = producers[topic] ?: throw getNotFoundProducerException(
+                topic
+            )
             (from..to).forEach {
-                postMessageToKafka(topic, it.toString(), producer)
+                postMessageToKafka(
+                    topic,
+                    it.toString(),
+                    producer
+                )
             }
         }
 
