@@ -1,13 +1,13 @@
-package kafka.producer
+package com.hojeda.kafka.producer
 
 
 fun main() {
 
-    val topic = "a-topic"
+    val topic = "numbers-topic"
     val host = "localhost"
     val port = "9092"
 
     KafkaProducer.createKafkaProducer(topic, host, port)
 
-    KafkaProducer.sendNumbers(topic, 1, 10000)
+    KafkaProducer.sendNumbers(topic, 1, 100)
 }
