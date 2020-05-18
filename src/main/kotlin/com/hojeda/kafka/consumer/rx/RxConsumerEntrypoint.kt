@@ -12,7 +12,7 @@ fun main() {
     val host = "localhost"
     val port = "9092"
 
-    val logger = LoggerFactory.getLogger("REPORTING-API-APPLICATION")
+    val logger = LoggerFactory.getLogger("CONSUMER-APPLICATION")
     System.setProperty("vertx.logger-delegate-factory-class-name", SLF4JLogDelegateFactory::class.java.name)
 
     val vertx = Vertx.vertx()
@@ -23,7 +23,7 @@ fun main() {
             logger.info("Verticle started")
 
             KafkaRxListener<String, String>(vertx)
-                .listen(host, port, topic, 10, 1) { record ->
+                .listen(host, port, topic, 10000, 1) { record ->
                     println("Value: ${record.value()}")
                     Completable.complete()
                 }

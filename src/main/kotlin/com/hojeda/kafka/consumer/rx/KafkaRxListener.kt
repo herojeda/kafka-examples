@@ -8,7 +8,6 @@ import io.reactivex.Maybe
 import io.vertx.reactivex.core.Vertx
 import io.vertx.reactivex.kafka.client.consumer.KafkaConsumer
 import io.vertx.reactivex.kafka.client.consumer.KafkaConsumerRecord
-import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerConfig.*
 import org.apache.kafka.common.serialization.StringDeserializer
 import java.util.concurrent.TimeUnit
@@ -66,10 +65,9 @@ class KafkaRxListener<K, V>(
                 BOOTSTRAP_SERVERS_CONFIG to "$host:$port",
                 KEY_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java.name,
                 VALUE_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java.name,
-                GROUP_ID_CONFIG to "consumer-${topic}",
+                GROUP_ID_CONFIG to "consumer-${topic}-rx",
                 AUTO_OFFSET_RESET_CONFIG to "latest",
-                ConsumerConfig.MAX_POLL_RECORDS_CONFIG to "5",
-                ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG to "1000"
+                MAX_POLL_RECORDS_CONFIG to "1"
             )
         )
 
