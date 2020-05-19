@@ -1,4 +1,4 @@
-package com.hojeda.kafka.consumer.rx.operator
+package com.hojeda.kafka.consumer.rx.flowable.operator
 
 import io.reactivex.Flowable
 import io.reactivex.FlowableOperator

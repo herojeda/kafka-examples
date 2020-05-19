@@ -1,6 +1,6 @@
-package com.hojeda.kafka.consumer.rx
+package com.hojeda.kafka.consumer.rx.flowable
 
-import com.hojeda.kafka.consumer.rx.operator.ThrottlingFlowableOperator.Companion.allowRate
+import com.hojeda.kafka.consumer.rx.flowable.operator.ThrottlingFlowableOperator.Companion.allowRate
 import com.hojeda.util.LoggerDelegate
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -65,9 +65,10 @@ class KafkaRxListener<K, V>(
                 BOOTSTRAP_SERVERS_CONFIG to "$host:$port",
                 KEY_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java.name,
                 VALUE_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java.name,
-                GROUP_ID_CONFIG to "consumer-${topic}-rx",
+                GROUP_ID_CONFIG to "consumer-${topic}-rx-flowable",
                 AUTO_OFFSET_RESET_CONFIG to "latest",
-                MAX_POLL_RECORDS_CONFIG to "1"
+                MAX_POLL_RECORDS_CONFIG to "5",
+                MAX_POLL_INTERVAL_MS_CONFIG to "500"
             )
         )
 
