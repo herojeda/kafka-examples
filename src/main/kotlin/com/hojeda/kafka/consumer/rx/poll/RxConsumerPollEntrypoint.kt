@@ -1,4 +1,4 @@
-package com.hojeda.kafka.consumer.rx
+package com.hojeda.kafka.consumer.rx.poll
 
 import com.hojeda.kafka.consumer.rx.vertx.MainVerticle
 import io.reactivex.Completable
@@ -22,8 +22,8 @@ fun main() {
         if (result.succeeded()) {
             logger.info("Verticle started")
 
-            KafkaRxListener<String, String>(vertx)
-                .listen(host, port, topic, 10, 1) { record ->
+            KafkaRxPollListener<String, String>(vertx)
+                .listen(host, port, topic, 10, 2) { record ->
                     println("Value: ${record.value()}")
                     Completable.complete()
                 }
