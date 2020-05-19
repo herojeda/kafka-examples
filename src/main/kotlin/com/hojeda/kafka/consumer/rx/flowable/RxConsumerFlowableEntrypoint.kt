@@ -12,7 +12,7 @@ fun main() {
     val host = "localhost"
     val port = "9092"
 
-    val logger = LoggerFactory.getLogger("REPORTING-API-APPLICATION")
+    val logger = LoggerFactory.getLogger("CONSUMER-APPLICATION")
     System.setProperty("vertx.logger-delegate-factory-class-name", SLF4JLogDelegateFactory::class.java.name)
 
     val vertx = Vertx.vertx()

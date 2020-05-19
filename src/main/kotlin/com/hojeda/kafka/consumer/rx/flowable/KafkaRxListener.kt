@@ -8,7 +8,6 @@ import io.reactivex.Maybe
 import io.vertx.reactivex.core.Vertx
 import io.vertx.reactivex.kafka.client.consumer.KafkaConsumer
 import io.vertx.reactivex.kafka.client.consumer.KafkaConsumerRecord
-import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerConfig.*
 import org.apache.kafka.common.serialization.StringDeserializer
 import java.util.concurrent.TimeUnit

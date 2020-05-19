@@ -1,4 +1,6 @@
-package com.hojeda.kafka.producer
+package com.hojeda.kafka.producer.numbers
+
+import com.hojeda.kafka.producer.KafkaProducer
 
 
 fun main() {
@@ -9,5 +11,5 @@ fun main() {
 
     KafkaProducer.createKafkaProducer(topic, host, port)
 
-    KafkaProducer.sendNumbers(topic, 1, 100)
+    KafkaProducer.sendNumbers(topic, 1, 10000)
 }
